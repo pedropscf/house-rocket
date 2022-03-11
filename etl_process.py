@@ -11,7 +11,7 @@ from geopy.geocoders            import Nominatim
 ###### FUNCTIONS
 #------------------------------------------------------------------------------------------------
 def show_information(df):
-    print('The dataset contains {} rows and {} columns. \n'.format(data.shape[0], df.shape[1]))
+    print('The dataset contains {} rows and {} columns. \n'.format(df.shape[0], df.shape[1]))
     print('And its features are: \n{}'.format(df.columns))
     print('\n The number of null values for each column are: \n{}'.format(df.isna().sum()))
     print('\n The datatypes of each column are: \n{}'.format(df.dtypes))
@@ -37,7 +37,7 @@ def feature_engineering(df):
 
     # Creating the dormitory type
     df['dormitoy_type'] = 'NA'
-    for i in rage(len(df)):
+    for i in range(len(df)):
 
         if  (df.loc[i,'bedrooms'] <= 1):
             df.loc[i,'dormitoy_type'] = 'studio'
@@ -90,7 +90,7 @@ def location_feature_engineering(df, user_agent='geopyExercises'):
             
     return df
     
-def load_mapa(df)
+def load_mapa(df):
     data_mapa = df[['id', 'lat', 'long', 'price']].copy()
 
     fig = px.scatter_mapbox(data_mapa,
@@ -151,7 +151,7 @@ def data_load(df, filename, path='dataset/'):
     return None
 
 
-if __name__ == '__main__'
+if __name__ == '__main__':
     
     # Extract
     data = data_extract('dataset/kc_house_data.csv')
@@ -160,4 +160,4 @@ if __name__ == '__main__'
     data = data_transformation(data)
     
     # Load
-    data_load(data, 'kc_house_treated')
+    data_load(data, 'kc_house_treated.csv')
